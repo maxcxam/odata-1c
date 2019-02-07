@@ -1,7 +1,6 @@
 <?php
 
 namespace Kily\Tools1C\OData;
-require 'vendor/autoload.php';
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Exception\ClientException;
