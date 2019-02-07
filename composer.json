@@ -1,18 +1,18 @@
 {
-    "name": "kilylabs/odata-1c",
-    "description": "ODATA protocol client adopted to use with 1C",
+    "name": "maxcxam/kyli_odata-1c",
+    "description": "ODATA protocol client adopted to use with 1C forked from Kili Labs",
     "keywords": ["1c", "1с", "odata", "1c enterprise", "8.3", "1с enterprise 8.3"],
     "type": "library",
     "license": "MIT",
 	"autoload": {
-		"psr-4": {"Kily\\Tools1C\\OData\\": "src/OData"}
+		"psr-4": {"Maxcxam\\Tools1C\\OData\\": "src/OData"}
 	},
 	"autoload-dev": {
-		"psr-4": {"Kily\\Tools1C\\OData\\Tests\\": "tests/OData/Tests"}
+		"psr-4": {"Maxcxam\\Tools1C\\OData\\Tests\\": "tests/OData/Tests"}
 	},
     "authors": [
         {
-            "name": "Alexander Bogdanov",
+            "name": "Alexander Bogdanov, edited by Maxcxam",
             "email": "ab@dev.kily.ru"
         }
     ],
