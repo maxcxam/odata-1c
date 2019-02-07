@@ -36,4 +36,12 @@ class Response
         return isset($vals[0]) ? $vals[0] : null;
     }
 
+    public function data($meta) {
+        $arr = $this->toArray();
+        if($meta === FALSE){
+            unset($arr['odata.metadata']);
+        }
+        return $arr;
+    }
+
 }

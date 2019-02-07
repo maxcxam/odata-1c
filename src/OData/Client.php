@@ -1,7 +1,7 @@
 <?php
 
 namespace Kily\Tools1C\OData;
-
+require 'vendor/autoload.php';
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Exception\ClientException;
@@ -59,6 +59,19 @@ class Client implements \ArrayAccess
         $this->request_options['query']['$filter'] = $name;
         return $this;
     }
+
+    public function select($select)
+    {
+        if(is_array($select))
+        {
+            $sel=implode(',', $select);
+            $this->request_options['query']['$select'] = $sel;
+        } else {
+            $this->request_options['query']['$select'] = $select;
+        }
+        return $this;
+    }
+
 
     public function get($id=null,$filter=null,$options=[]) {
         if($id === null) $id = $this->id;
@@ -178,7 +191,6 @@ class Client implements \ArrayAccess
         }
         $this->parseMetadata($resp);
         $this->response = new Response($this,$resp);
-
         return $this;
     }
 
@@ -282,7 +294,14 @@ class Client implements \ArrayAccess
     }
 
     public function values() {
+        #d($this->response);
         return $this->response ? $this->response->values() : [];
+    }
+
+
+    public function data($meta=FALSE) {
+        #d($this->response);
+        return $this->response ? $this->response->data($meta) : [];
     }
 
     public function first() {
